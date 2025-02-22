@@ -72,6 +72,7 @@ void gameStartup() {
             bricks.push_back(newBrick);
         }
     }
+    //load sounds
     fxBrickHit[0] = LoadSound("assets/brick-hit-1.wav");
     fxBrickHit[1] = LoadSound("assets/brick-hit-2.wav");
     fxPaddHit = LoadSound("assets/paddle-hit-1.wav");
@@ -166,6 +167,7 @@ void gameRender() {
     DrawText(text, 10, 10, 30, RAYWHITE);
 }
 
+//safely shutdowns game
 void gameShutdown() {
     UnloadSound(fxBrickHit[0]);
     UnloadSound(fxBrickHit[1]);
@@ -186,6 +188,7 @@ int main()
 
     gameStartup();
 
+    //runs game
     while(!WindowShouldClose()) {
         
         gameUpdate();
@@ -197,20 +200,9 @@ int main()
 
         EndDrawing();
     }
-
+    //ends game
     gameShutdown();
     CloseWindow();
     return 0;
 }
 
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
